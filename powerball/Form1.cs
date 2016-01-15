@@ -23,10 +23,14 @@ namespace powerball
             pbTxt.Text = "请随机选择Powerball";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// 调用LottoNumbers方法，来随机选择数字
+        /// </summary>
+        /// <returns>随机选择的6个数字</returns>
+        private static string LottoNumbers() //static静态方法，方便调用，但效率不高
         {
-            lottoTxt.Text = "";
-            //1~40随机选6，并从小到达排列，中间以"-"隔开
             ArrayList list = new ArrayList(); //要添加using System.Collections命名空间
             Random r = new Random();
             for (int i = 0; i < 6; i++)
@@ -43,13 +47,19 @@ namespace powerball
             }
             //把该数组从小到大排列
             list.Sort();
-
             //依次把数组中元素赋值给一个变量，并在每个数字用-连接
+            string lottoNumbers = "";
             for (int i = 0; i < list.Count; i++)
             {
-                lottoTxt.Text = lottoTxt.Text + list[i].ToString() + "-";
+                lottoNumbers = lottoNumbers + list[i].ToString() + "-";
             }
-            lottoTxt.Text = lottoTxt.Text.Substring(0, lottoTxt.Text.Length - 1);
+            return lottoNumbers.Substring(0, lottoNumbers.Length - 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lottoTxt.Text = "";
+            lottoTxt.Text = pbForm.LottoNumbers(); //调用LottoNumbers()方法，产生lotto号码
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -58,9 +68,12 @@ namespace powerball
             pbTxt.Text = r.Next(1, 11).ToString();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            lottoTxt.Text = "";
+            lottoTxt.Text = pbForm.LottoNumbers();
+            Random r = new Random();
+            pbTxt.Text = r.Next(1, 11).ToString();
         }
 
 
