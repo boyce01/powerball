@@ -96,34 +96,6 @@ namespace powerball
 
         }
 
-        /// <summary>
-        /// select no. as user input
-        /// </summary>
-        /// <param name="list">ArrayList</param>
-        /// <param name="r">random number</param>
-        //private static void SelectedNo(ArrayList list, Random r)
-        //{
-        //    for (int i = 0; i < 6 - list.Count; i++)
-        //    {
-        //        int lottoInt = r.Next(1, 41);
-        //        if (list.Contains(lottoInt)) //Contains()方法:判断ArrayList数组中是否存在某个元素
-        //        {
-        //            i--; //若数组中存在该元素，则i自动减1，本次循环不算    
-        //        }
-        //        else //数组中不存在该随机数
-        //        {
-        //            list.Add(lottoInt); //把该随机数添加到数组中
-        //        }
-        //    }
-        //    //把该数组从小到大排列
-        //    list.Sort();
-        //    txt1.Text = list[0].ToString();
-        //    txt2.Text = list[1].ToString();
-        //    txt3.Text = list[2].ToString();
-        //    txt4.Text = list[3].ToString();
-        //    txt5.Text = list[4].ToString();
-        //    txt6.Text = list[5].ToString();
-        //}
 
         /// <summary>
         /// select no. as ppl wish
@@ -172,6 +144,10 @@ namespace powerball
                 {
                     list.Add(int.Parse(txt6.Text));
                 }
+                else if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
+                {
+                    txt7.Text = r.Next(1, 11).ToString();
+                }
 
                 //judge how many elements is in the list
                 switch (list.Count)
@@ -193,6 +169,11 @@ namespace powerball
             }// 1st else
         }
 
+        /// <summary>
+        /// select numbers as user
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="r"></param>
         private void SelectNumbers(ArrayList list, Random r)
         {
             for (int i = 0; i < 6 - list.Count; i++)
@@ -213,10 +194,40 @@ namespace powerball
             txt2.Text = list[1].ToString();
             txt3.Text = list[2].ToString();
             txt4.Text = list[3].ToString();
-            txt5.Text = list[4].ToString();
+            txt5.Text = list[4].ToString(); //？？？
             txt6.Text = list[5].ToString();
         }
 
+        #region method by myself
+        /// <summary>
+        /// select no. as user input
+        /// </summary>
+        /// <param name="list">ArrayList</param>
+        /// <param name="r">random number</param>
+        //private static void SelectedNo(ArrayList list, Random r)
+        //{
+        //    for (int i = 0; i < 6 - list.Count; i++)
+        //    {
+        //        int lottoInt = r.Next(1, 41);
+        //        if (list.Contains(lottoInt)) //Contains()方法:判断ArrayList数组中是否存在某个元素
+        //        {
+        //            i--; //若数组中存在该元素，则i自动减1，本次循环不算    
+        //        }
+        //        else //数组中不存在该随机数
+        //        {
+        //            list.Add(lottoInt); //把该随机数添加到数组中
+        //        }
+        //    }
+        //    //把该数组从小到大排列
+        //    list.Sort();
+        //    txt1.Text = list[0].ToString();
+        //    txt2.Text = list[1].ToString();
+        //    txt3.Text = list[2].ToString();
+        //    txt4.Text = list[3].ToString();
+        //    txt5.Text = list[4].ToString();
+        //    txt6.Text = list[5].ToString();
+        //}
+        #endregion
 
     }
 }

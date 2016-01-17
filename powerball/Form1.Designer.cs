@@ -34,6 +34,20 @@
             this.pbTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.selectBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txt2 = new System.Windows.Forms.TextBox();
+            this.txt3 = new System.Windows.Forms.TextBox();
+            this.txt4 = new System.Windows.Forms.TextBox();
+            this.txt5 = new System.Windows.Forms.TextBox();
+            this.txt6 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt7 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lottoTxt
@@ -83,7 +97,6 @@
             this.label1.Size = new System.Drawing.Size(611, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "If you win numbers, do not forget to buy fish and chips for Boyce! ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -97,11 +110,136 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Good luck";
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(230, 356);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(235, 39);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Lotto + Powerball";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.txt7);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txt6);
+            this.groupBox1.Controls.Add(this.txt5);
+            this.groupBox1.Controls.Add(this.txt4);
+            this.groupBox1.Controls.Add(this.txt3);
+            this.groupBox1.Controls.Add(this.txt2);
+            this.groupBox1.Controls.Add(this.txt1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(48, 82);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(619, 329);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "自选号";
+            this.groupBox1.Visible = false;
+            // 
+            // selectBtn
+            // 
+            this.selectBtn.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.selectBtn.Location = new System.Drawing.Point(230, 444);
+            this.selectBtn.Name = "selectBtn";
+            this.selectBtn.Size = new System.Drawing.Size(235, 39);
+            this.selectBtn.TabIndex = 11;
+            this.selectBtn.Text = "Select numbers by hand";
+            this.selectBtn.UseVisualStyleBackColor = true;
+            this.selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(54, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Lotto:";
+            // 
+            // txt1
+            // 
+            this.txt1.Location = new System.Drawing.Point(150, 83);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(40, 25);
+            this.txt1.TabIndex = 1;
+            // 
+            // txt2
+            // 
+            this.txt2.Location = new System.Drawing.Point(221, 83);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(40, 25);
+            this.txt2.TabIndex = 2;
+            // 
+            // txt3
+            // 
+            this.txt3.Location = new System.Drawing.Point(296, 83);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(40, 25);
+            this.txt3.TabIndex = 3;
+            // 
+            // txt4
+            // 
+            this.txt4.Location = new System.Drawing.Point(373, 83);
+            this.txt4.Name = "txt4";
+            this.txt4.Size = new System.Drawing.Size(40, 25);
+            this.txt4.TabIndex = 4;
+            // 
+            // txt5
+            // 
+            this.txt5.Location = new System.Drawing.Point(453, 83);
+            this.txt5.Name = "txt5";
+            this.txt5.Size = new System.Drawing.Size(40, 25);
+            this.txt5.TabIndex = 5;
+            // 
+            // txt6
+            // 
+            this.txt6.Location = new System.Drawing.Point(532, 83);
+            this.txt6.Name = "txt6";
+            this.txt6.Size = new System.Drawing.Size(40, 25);
+            this.txt6.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(54, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Powerball:";
+            // 
+            // txt7
+            // 
+            this.txt7.Location = new System.Drawing.Point(296, 183);
+            this.txt7.Name = "txt7";
+            this.txt7.Size = new System.Drawing.Size(55, 25);
+            this.txt7.TabIndex = 8;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.Location = new System.Drawing.Point(182, 264);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(235, 39);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Lotto + Powerball";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // pbForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 360);
+            this.ClientSize = new System.Drawing.Size(694, 514);
+            this.Controls.Add(this.selectBtn);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbTxt);
@@ -111,6 +249,8 @@
             this.Name = "pbForm";
             this.Text = "POWERBALL";
             this.Load += new System.EventHandler(this.pbForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +264,19 @@
         private System.Windows.Forms.TextBox pbTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txt7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt6;
+        private System.Windows.Forms.TextBox txt5;
+        private System.Windows.Forms.TextBox txt4;
+        private System.Windows.Forms.TextBox txt3;
+        private System.Windows.Forms.TextBox txt2;
+        private System.Windows.Forms.TextBox txt1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button selectBtn;
     }
 }
 
