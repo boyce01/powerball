@@ -124,27 +124,27 @@ namespace powerball
                 {
                     list.Add(int.Parse(txt1.Text));
                 }
-                else if (!string.IsNullOrEmpty(txt2.Text.Trim()))
+                if (!string.IsNullOrEmpty(txt2.Text.Trim()))
                 {
                     list.Add(int.Parse(txt2.Text));
                 }
-                else if (!string.IsNullOrEmpty(txt3.Text.Trim()))
+                if (!string.IsNullOrEmpty(txt3.Text.Trim()))
                 {
                     list.Add(int.Parse(txt3.Text));
                 }
-                else if (!string.IsNullOrEmpty(txt4.Text.Trim()))
+                if (!string.IsNullOrEmpty(txt4.Text.Trim()))
                 {
                     list.Add(int.Parse(txt4.Text));
                 }
-                else if (!string.IsNullOrEmpty(txt5.Text.Trim()))
+                if (!string.IsNullOrEmpty(txt5.Text.Trim()))
                 {
                     list.Add(int.Parse(txt5.Text));
                 }
-                else if (!string.IsNullOrEmpty(txt6.Text.Trim()))
+                if (!string.IsNullOrEmpty(txt6.Text.Trim()))
                 {
                     list.Add(int.Parse(txt6.Text));
                 }
-                else if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
+                if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
                 {
                     txt7.Text = r.Next(1, 11).ToString();
                 }
@@ -152,17 +152,17 @@ namespace powerball
                 //judge how many elements is in the list
                 switch (list.Count)
                 {
-                    case 1: SelectNumbers(list, r);
+                    case 0: SelectNumbers(6, list, r);
                         break;
-                    case 2: SelectNumbers(list, r);
+                    case 1: SelectNumbers(5, list, r);
                         break;
-                    case 3: SelectNumbers(list, r);
+                    case 2: SelectNumbers(4, list, r);
                         break;
-                    case 4: SelectNumbers(list, r);
+                    case 3: SelectNumbers(3, list, r);
                         break;
-                    case 5: SelectNumbers(list, r);
+                    case 4: SelectNumbers(2, list, r);
                         break;
-                    case 6: SelectNumbers(list, r);
+                    case 5: SelectNumbers(1, list, r);
                         break;
                 }
 
@@ -170,13 +170,14 @@ namespace powerball
         }
 
         /// <summary>
-        /// select numbers as user
+        /// select no. as user wish
         /// </summary>
-        /// <param name="list"></param>
-        /// <param name="r"></param>
-        private void SelectNumbers(ArrayList list, Random r)
+        /// <param name="times">cirle times</param>
+        /// <param name="list">arraylist to store numbers</param>
+        /// <param name="r">random per</param>
+        private void SelectNumbers(int times, ArrayList list, Random r)
         {
-            for (int i = 0; i < 6 - list.Count; i++)
+            for (int i = 0; i < times; i++) //不能写：i<6-list.Count;因为每次抽取随机数，list.Count的值都会+1
             {
                 int lottoInt = r.Next(1, 41);
                 if (list.Contains(lottoInt)) //Contains()方法:判断ArrayList数组中是否存在某个元素
