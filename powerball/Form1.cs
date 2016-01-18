@@ -120,35 +120,11 @@ namespace powerball
                 ArrayList list = new ArrayList();
                 Random r = new Random();
                 //如果有值，则提取值，再随机选出剩下的数
-                if (!string.IsNullOrEmpty(txt1.Text.Trim()))
-                {
-                    TestRange(txt1.Text, list);
-                }
-                else if (!string.IsNullOrEmpty(txt2.Text.Trim()))
-                {
-                    TestRange(txt2.Text, list);
-                }
-                else if (!string.IsNullOrEmpty(txt3.Text.Trim()))
-                {
-                    TestRange(txt3.Text, list);
-                }
-                else if (!string.IsNullOrEmpty(txt4.Text.Trim()))
-                {
-                    TestRange(txt4.Text, list);
-                }
-                else if (!string.IsNullOrEmpty(txt5.Text.Trim()))
-                {
-                    TestRange(txt5.Text, list);
-                }
-                else if (!string.IsNullOrEmpty(txt6.Text.Trim()))
-                {
-                    TestRange(txt6.Text, list);
-                }
-                else if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
+                if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
                 {
                     txt7.Text = r.Next(1, 11).ToString();
                 }
-                else if (!string.IsNullOrEmpty(txt7.Text.Trim())) //powerball has value, judge range:1~10
+                if (!string.IsNullOrEmpty(txt7.Text.Trim())) //powerball has value, judge range:1~10
                 {
                     if (Convert.ToInt32(txt7.Text.Trim()) < 1 || Convert.ToInt32(txt7.Text.Trim()) > 10)
                     {
@@ -156,6 +132,30 @@ namespace powerball
                         Clear();
                         return;
                     }
+                }
+                if (!string.IsNullOrEmpty(txt1.Text.Trim()))
+                {
+                    TestRange(txt1.Text, list);
+                }
+                if (!string.IsNullOrEmpty(txt2.Text.Trim()))
+                {
+                    TestRange(txt2.Text, list);
+                }
+                if (!string.IsNullOrEmpty(txt3.Text.Trim()))
+                {
+                    TestRange(txt3.Text, list);
+                }
+                if (!string.IsNullOrEmpty(txt4.Text.Trim()))
+                {
+                    TestRange(txt4.Text, list);
+                }
+                if (!string.IsNullOrEmpty(txt5.Text.Trim()))
+                {
+                    TestRange(txt5.Text, list);
+                }
+                if (!string.IsNullOrEmpty(txt6.Text.Trim()))
+                {
+                    TestRange(txt6.Text, list);
                 }
 
                 //judge how many elements is in the list
@@ -210,7 +210,7 @@ namespace powerball
             txt6.Text = list[5].ToString();
         }
 
-        
+
         private void clearBtn_Click(object sender, EventArgs e)
         {
             Clear();
@@ -239,13 +239,21 @@ namespace powerball
         /// <param name="list"></param>
         private void TestRange(string txt, ArrayList list)
         {
-            if (Convert.ToInt32(txt.Trim()) > 0 && Convert.ToInt32(txt.Trim()) < 41)
+            try
             {
-                list.Add(int.Parse(txt1.Text));
+                if (Convert.ToInt32(txt.Trim()) > 0 && Convert.ToInt32(txt.Trim()) < 41)
+                {
+                    list.Add(int.Parse(txt));
+                }
+                else
+                {
+                    MessageBox.Show("Please input a number from 1 to 40");
+                    Clear();
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Please input a number from 1 to 40");
+                MessageBox.Show("Please input a valid number");
                 Clear();
                 return;
             }
