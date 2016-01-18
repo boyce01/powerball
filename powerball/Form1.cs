@@ -122,31 +122,40 @@ namespace powerball
                 //如果有值，则提取值，再随机选出剩下的数
                 if (!string.IsNullOrEmpty(txt1.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt1.Text));
+                    TestRange(txt1.Text, list);
                 }
-                if (!string.IsNullOrEmpty(txt2.Text.Trim()))
+                else if (!string.IsNullOrEmpty(txt2.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt2.Text));
+                    TestRange(txt2.Text, list);
                 }
-                if (!string.IsNullOrEmpty(txt3.Text.Trim()))
+                else if (!string.IsNullOrEmpty(txt3.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt3.Text));
+                    TestRange(txt3.Text, list);
                 }
-                if (!string.IsNullOrEmpty(txt4.Text.Trim()))
+                else if (!string.IsNullOrEmpty(txt4.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt4.Text));
+                    TestRange(txt4.Text, list);
                 }
-                if (!string.IsNullOrEmpty(txt5.Text.Trim()))
+                else if (!string.IsNullOrEmpty(txt5.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt5.Text));
+                    TestRange(txt5.Text, list);
                 }
-                if (!string.IsNullOrEmpty(txt6.Text.Trim()))
+                else if (!string.IsNullOrEmpty(txt6.Text.Trim()))
                 {
-                    list.Add(int.Parse(txt6.Text));
+                    TestRange(txt6.Text, list);
                 }
-                if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
+                else if (string.IsNullOrEmpty(txt7.Text.Trim())) //powerball is null
                 {
                     txt7.Text = r.Next(1, 11).ToString();
+                }
+                else if (!string.IsNullOrEmpty(txt7.Text.Trim())) //powerball has value, judge range:1~10
+                {
+                    if (Convert.ToInt32(txt7.Text.Trim()) < 1 || Convert.ToInt32(txt7.Text.Trim()) > 10)
+                    {
+                        MessageBox.Show("Please input a number from 1 to 10");
+                        Clear();
+                        return;
+                    }
                 }
 
                 //judge how many elements is in the list
@@ -163,6 +172,8 @@ namespace powerball
                     case 4: SelectNumbers(2, list, r);
                         break;
                     case 5: SelectNumbers(1, list, r);
+                        break;
+                    case 6: SelectNumbers(0, list, r); //if user input 6 no., the no. r ranked
                         break;
                 }
 
@@ -195,8 +206,49 @@ namespace powerball
             txt2.Text = list[1].ToString();
             txt3.Text = list[2].ToString();
             txt4.Text = list[3].ToString();
-            txt5.Text = list[4].ToString(); //？？？
+            txt5.Text = list[4].ToString();
             txt6.Text = list[5].ToString();
+        }
+
+        
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        /// <summary>
+        /// clear all txt boxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Clear()
+        {
+            txt1.Text = null;
+            txt2.Text = null;
+            txt3.Text = null;
+            txt4.Text = null;
+            txt5.Text = null;
+            txt6.Text = null;
+            txt7.Text = null;
+        }
+
+        /// <summary>
+        /// 检验用户的输入是否达标
+        /// </summary>
+        /// <param name="txt"></param>
+        /// <param name="list"></param>
+        private void TestRange(string txt, ArrayList list)
+        {
+            if (Convert.ToInt32(txt.Trim()) > 0 && Convert.ToInt32(txt.Trim()) < 41)
+            {
+                list.Add(int.Parse(txt1.Text));
+            }
+            else
+            {
+                MessageBox.Show("Please input a number from 1 to 40");
+                Clear();
+                return;
+            }
         }
 
         #region method by myself
